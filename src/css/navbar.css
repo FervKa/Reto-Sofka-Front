@@ -1,0 +1,29 @@
+/* .imagen-tamano{
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+} */
+
+.cnt-propio{
+    position: inherit;
+}
+
+.nav-principal{
+    border-radius: 14px;
+}
+
+.conocimientos {
+    font-size: 25px;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    margin-right: 40px;
+}
+
+.container-fluid {
+    color: white;
+    position: relative;
+    /* bottom: 0; */
+}
