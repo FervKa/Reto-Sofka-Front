@@ -1,0 +1,31 @@
+.tabla {
+    background-color: rgba(0, 0, 0, 0.604);
+    width: 500px;
+    color: white;
+}
+
+.table-hover {
+    color: white
+}
+
+.encabezado {
+    min-width: 500px;
+    max-width: 500px;
+    height: 300px;
+    /* align-items: center; */
+    text-align: center;
+    color: white
+}
+
+.container-just {
+    position: absolute;
+    left: 50%;
+    margin-left: -300px;
+    top: 50%;
+    margin-top: -200px;
+}
+
+div.boton {
+    display: flex;
+    justify-content: center;
+}

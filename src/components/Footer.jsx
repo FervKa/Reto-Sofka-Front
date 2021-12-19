@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import '../css/footer.css'
 import Modal from './Modal';
 
@@ -25,22 +26,22 @@ const Footer = () => {
                                 {/* <a onClick={holawe}>
                                     Acerca de mí
                                 </a> */}
-                                <a className="nav-link active" aria-current="page"
-                                    onClick={holawe} data-bs-toggle="modal" data-bs-target="#Info">
+                                <NavLink to="" className="nav-link active" aria-current="page"
+                                     data-bs-toggle="modal" data-bs-target="#Info">
                                     INFO
-                                </a>
+                                </NavLink>
                             </div>
                         </div>
                         <div className='text-footer'>
-                            <div className="row-4">
+                            <NavLink to="/ListaJugadores" className="row-4">
                                 Lista de Jugadores
-                            </div>
+                            </NavLink>
                         </div>
                     </div>
                 </nav>
             </div>
 
-            {<Modal titulo="Informaciòn" contenido="Holi, we" />}
+            {/* {<Modal titulo="Informaciòn" contenido="Holi, we" />} */}
 
         </>
     )
