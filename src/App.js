@@ -11,6 +11,7 @@ import Preguntas from "./components/Preguntas";
 import Pregunta2 from "./components/Pregunta2";
 import Pregunta3 from "./components/Pregunta3";
 import Pregunta4 from "./components/Pregunta4";
+import Pregunta5 from "./components/Pregunta5";
 
 
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/pregunta2" element={<Pregunta2 />} />
             <Route path="/pregunta3" element={<Pregunta3 />} />
             <Route path="/pregunta4" element={<Pregunta4 />} />
+            <Route path="/pregunta5" element={<Pregunta5 />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
