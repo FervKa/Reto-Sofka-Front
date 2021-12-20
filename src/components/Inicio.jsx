@@ -17,10 +17,11 @@ const Inicio = () => {
                         Es hora de desafiar y poner a prueba con preguntas tus conocimientos.
                     </div>
                     <div className='texto-boton'>
-                        ¡Pulsa el botón de abajo para comenzar con las preguntas!
+                        <br></br>
+                        ¡Pulsa el botón de abajo para conocer las preguntas!
                     </div>
-                    <div className="boton-dark">
-                        <Link to="/preguntas" type="button" class="btn btn-dark" >Iniciar</Link>
+                    <div className='boton-dark'>
+                        <Link to="/preguntas" type="button" className="btn btn-light btn-lg">Empieza</Link>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,13 @@
 import { gql } from "@apollo/client";
 
 const GET_JUGADORES = gql`
-query Query {
+  query Query {
     Jugadores {
       nombre
       apellido
       puntaje
     }
   }
-
-
 `;
 
-export { GET_JUGADORES }; 
+export { GET_JUGADORES };

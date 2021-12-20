@@ -1,0 +1,33 @@
+.container-global{
+    height: 100%;
+    width: 100%;
+}
+
+
+.container-preg {
+    text-align: center;
+    color: white
+}
+
+
+.container-preguntas {
+    background-color: rgba(0, 0, 0, 0.589);
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+}
+
+.tamano-input{
+    width: 300px;
+}
+
+.input-modal{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+
+}

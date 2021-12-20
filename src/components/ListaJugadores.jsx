@@ -9,12 +9,12 @@ const ListaJugadores = () => {
 
     const { data, loading, error } = useQuery(GET_JUGADORES)
 
-
-    if(loading) return <>Cargando</>
-
     /* useEffect(() => {
         console.log("Datos del server", data);
     }, [data]) */
+
+    if (loading) return <>Cargando</>
+
 
     return (
         <>
@@ -44,7 +44,7 @@ const ListaJugadores = () => {
                     </table>
                 </div>
                 <div className="boton">
-                    <Link to="/" type="button" class="btn btn-dark" >Regresar</Link>
+                    <Link to="/" type="button" className="btn btn-dark" >Regresar</Link>
                 </div>
             </div>
 

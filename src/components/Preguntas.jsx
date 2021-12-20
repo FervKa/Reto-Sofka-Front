@@ -10,7 +10,7 @@ const Preguntas = () => {
                     <div className='texto-desafio'>
                         En este módulo aparecen los temas a los que te enfrentarás.
                         <br></br>
-                        Recuerda que los temas salen de manera aleatoria.
+                        Recuerda que las preguntas salen de manera aleatoria.
                         <br></br>
                         - Matemáticas.
                         <br></br>
@@ -30,7 +30,7 @@ const Preguntas = () => {
                     </div>
                     <br />
                     <div className="boto">
-                        <Link to="/pregunta1" type="button" class="btn btn-dark" >Iniciar</Link>
+                        <Link to="/pregunta1" type="button" className="btn btn-dark" >Iniciar</Link>
                     </div>
                 </div>
             </div>
