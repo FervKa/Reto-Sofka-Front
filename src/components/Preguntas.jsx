@@ -16,7 +16,7 @@ const Preguntas = () => {
                         <br></br>
                         - Ciencias
                         <br></br>
-                        - Historia.
+                        - Cine.
                         <br></br>
                         - Tecnología.
                         <br></br>

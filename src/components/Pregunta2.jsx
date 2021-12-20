@@ -1,33 +1,27 @@
-import { useQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { GET_MATHS } from "../graphql/matematicas/querys";
-import '../css/pregunta1.css'
+import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { GET_CIENCIA } from '../graphql/ciencia/querys';
 
-const Pregunta1 = () => {
+const Pregunta2 = () => {
 
     const [preguntaUno, setPreguntaUno] = useState([]);
 
-    const { data, loading, error } = useQuery(GET_MATHS);
+    const { data, loading, error } = useQuery(GET_CIENCIA);
 
     let respuestaDato;
 
     const preguntasMatematica = async () => {
         const listaPregunta = await data;
-        const randomDato = Math.floor(Math.random() * listaPregunta.Matematicas.length)
-        respuestaDato = await listaPregunta.Matematicas[randomDato]
+        const randomDato = Math.floor(Math.random() * listaPregunta.Sciences.length)
+        respuestaDato = await listaPregunta.Sciences[randomDato]
 
         console.log("Desde la función", respuestaDato);
         setPreguntaUno(respuestaDato);
         console.log("Desde la función el state", preguntaUno);
 
-        /* console.log("El tamaño es:", listaPregunta.Matematicas.length);
-        console.log("La lista es:", listaPregunta); */
         return respuestaDato;
     }
-
-    console.log("Desde afuera", respuestaDato || []);
-
 
 
     useEffect(() => {
@@ -40,7 +34,6 @@ const Pregunta1 = () => {
     if (loading) return <>Cargando</>
 
     return (
-
         <>
             <div className="container-global">
                 <div className="container-preguntas">
@@ -54,7 +47,7 @@ const Pregunta1 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <Link to="/pregunta2" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
+                        <Link to="/pregunta3" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">
@@ -99,15 +92,13 @@ const Pregunta1 = () => {
                         <br />
                         <div className="modal-footer">
                             {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                            <button to="/" type="button" className="btn btn-primary">Save changes</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </>
     )
-};
+}
 
-export default Pregunta1;
+export default Pregunta2
