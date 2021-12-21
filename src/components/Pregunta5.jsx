@@ -52,7 +52,7 @@ const Pregunta5 = () => {
     return (
         <>
             <div className="puntaje-actual">
-                <label>Tu puntaje actual es: 0</label>
+                <label>Tu puntaje actual es: 40</label>
             </div>
             <div className='boton-rendirse'>
                 <Link to="/rendirse5" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
