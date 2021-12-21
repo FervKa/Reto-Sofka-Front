@@ -56,7 +56,7 @@ const Pregunta5 = () => {
                 <label>Tu puntaje actual es: 0</label>
             </div>
             <div>
-                <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-rendirse">¡Ríndete! Igual la vida es una</button>
+                <Link to="/rendirse5" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
             <div className="container-global">
                 <div className="container-preguntas">
@@ -70,25 +70,25 @@ const Pregunta5 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#ganaste_modal">
-                            &nbsp;{preguntaUno.respuesta_correcta}&nbsp;
-                        </button>
+                        <div className="container-preg">
+                            <Link to="/ganaste" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
+                        </div>
                     </div>
                     <br />
                     <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-rendirse">
+                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr1}&nbsp;
                         </button>
                     </div>
                     <br />
                     <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-rendirse">
+                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr2}&nbsp;
                         </button>
                     </div>
                     <br />
                     <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-rendirse">
+                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr3}&nbsp;
                         </button>
 
@@ -96,8 +96,8 @@ const Pregunta5 = () => {
                 </div>
             </div>
 
-            {/* Inicio Modal Ganaste */}
-            <div className="modal fade" id="ganaste_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            {/* Modal Perdiste */}
+            <div className="modal fade" id="modal-perdiste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -149,63 +149,8 @@ const Pregunta5 = () => {
                     </div>
                 </div>
             </div>
-            {/* Finaliza Modal Ganaste */}
+            {/* Finaliza Modal Perdiste */}
 
-            {/* Inicia Modal Rendición */}
-            <div className="modal fade" id="modal-rendirse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-body">
-                            <h1>Oh, ¿te rendiste?</h1>
-                            <h1>Qué mal</h1>
-                            <h4>Ingresa tus datos y vuelve a intentarlo.</h4>
-                        </div>
-                        <form
-                            onSubmit={submitForm}
-                            onChange={updateFormData}
-                            ref={form}
-                        >
-                            <div className="input-modal">
-                                <label>Puntaje</label>
-                            </div>
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text"
-                                    aria-label=".form-control-sm example"
-                                    name="puntaje"
-                                    defaultValue={puntaje}
-                                    disabled
-                                ></input>
-                            </div>
-                            <br />
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text" placeholder="Nombres"
-                                    aria-label=".form-control-sm example"
-                                    name="nombre"
-                                    required
-                                ></input>
-                            </div>
-                            <br />
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text" placeholder="Apellido"
-                                    aria-label=".form-control-sm example"
-                                    name="apellido"
-                                    required
-                                ></input>
-                            </div>
-                            <div className="modal-footer">
-                                <button onClick={submitForm} type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {/* Termina Modal Rendición */}
         </>
     )
 }

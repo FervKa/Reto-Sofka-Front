@@ -1,29 +1,14 @@
-import { useMutation, useQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { GET_MATHS } from "../graphql/matematicas/querys";
-import '../css/pregunta1.css'
-import { SET_JUGADOR } from "../graphql/jugadores/mutations";
-import { useFormData } from "../hooks/useFormData";
+import { useMutation } from '@apollo/client';
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { SET_JUGADOR } from '../graphql/jugadores/mutations';
+import { useFormData } from '../hooks/useFormData';
 
-const Pregunta1 = () => {
+const Ganaste = () => {
 
-    const [preguntaUno, setPreguntaUno] = useState([]);
-    const { data, loading, error } = useQuery(GET_MATHS);
     const { form, formData, updateFormData } = useFormData(null);
-    const puntaje = "0";
+    const puntaje = "50";
     const [agregarJugador, { data: dataMutation, loading: loadingMutation, error: errorMutation }] = useMutation(SET_JUGADOR)
-
-    let respuestaDato;
-
-    const preguntasMatematica = async () => {
-        const listaPregunta = await data;
-        const randomDato = Math.floor(Math.random() * listaPregunta.Matematicas.length)
-        respuestaDato = await listaPregunta.Matematicas[randomDato];
-        setPreguntaUno(respuestaDato);
-        return respuestaDato;
-    }
-
 
     const Navigate = useNavigate();
 
@@ -35,69 +20,29 @@ const Pregunta1 = () => {
             variables: {
                 nombre: formData.nombre,
                 apellido: formData.apellido,
-                puntaje: "0"
+                puntaje: "50"
             }
         })
         Navigate("/")
     }
 
-
-    useEffect(() => {
-        preguntasMatematica();
-        console.log("Desde el Effect", preguntaUno);
-    }, [data])
-
-
-
-    if (loading) return <>Cargando</>
-
     return (
-
         <>
-            <div className="puntaje-actual">
-                <label>Tu puntaje actual es: 0</label>
-            </div>
-            <div>
-                <Link to="/rendirse1" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
-            </div>
-            <div className="container-global">
-                <div className="container-preguntas">
-                    <div className="container-preg">
-                        &nbsp;Responde con sabiduria:
-
+            <div className="container-uno">
+                <div className="container-propio">
+                    <div className='texto-desafio'>
+                        Felicidades por haber ganado.
                     </div>
-                    <hr />
-                    <div className="container-preg">
-                        &nbsp;{preguntaUno.pregunta}&nbsp;
+                    <div className='texto-boton'>
+                        <br></br>
+                        ¡Has recibido 50 puntos!
                     </div>
-                    <hr />
-                    <div className="container-preg">
-                        <Link to="/pregunta2" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
-                    </div>
-                    <br />
-                    <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
-                            &nbsp;{preguntaUno.respuesta_ncrr1}&nbsp;
-                        </button>
-                    </div>
-                    <br />
-                    <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
-                            &nbsp;{preguntaUno.respuesta_ncrr2}&nbsp;
-                        </button>
-                    </div>
-                    <br />
-                    <div className="container-preg">
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
-                            &nbsp;{preguntaUno.respuesta_ncrr3}&nbsp;
-                        </button>
-
-                    </div>
+                    <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-ganaste">Registrate para ir al inicio</button>
                 </div>
             </div>
 
-            {/* Modal Perdiste */}
-            <div className="modal fade" id="modal-perdiste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+            <div className="modal fade" id="modal-ganaste" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -149,9 +94,8 @@ const Pregunta1 = () => {
                     </div>
                 </div>
             </div>
-            {/* Finaliza Modal Perdiste */}
         </>
     )
-};
+}
 
-export default Pregunta1;
+export default Ganaste

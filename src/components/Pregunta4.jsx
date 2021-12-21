@@ -1,9 +1,10 @@
-import { useMutation, useQuery } from '@apollo/client';
-import React, { useEffect, useState } from 'react'
-import { Link, Navigate } from 'react-router-dom';
-import { GET_CULTURA } from '../graphql/cultura/querys';
-import { SET_JUGADOR } from '../graphql/jugadores/mutations';
-import { useFormData } from '../hooks/useFormData';
+import { useMutation, useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import '../css/pregunta1.css'
+import { SET_JUGADOR } from "../graphql/jugadores/mutations";
+import { useFormData } from "../hooks/useFormData";
+import { GET_CULTURA } from "../graphql/cultura/querys";
 
 const Pregunta4 = () => {
 
@@ -13,20 +14,19 @@ const Pregunta4 = () => {
     const puntaje = "30";
     const [agregarJugador, { data: dataMutation, loading: loadingMutation, error: errorMutation }] = useMutation(SET_JUGADOR)
 
-
     let respuestaDato;
 
     const preguntasMatematica = async () => {
         const listaPregunta = await data;
         const randomDato = Math.floor(Math.random() * listaPregunta.Culturas.length)
-        respuestaDato = await listaPregunta.Culturas[randomDato]
-
-        console.log("Desde la función", respuestaDato);
+        respuestaDato = await listaPregunta.Culturas[randomDato];
         setPreguntaUno(respuestaDato);
-        console.log("Desde la función el state", preguntaUno);
-
         return respuestaDato;
     }
+
+
+    const Navigate = useNavigate();
+
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -35,7 +35,7 @@ const Pregunta4 = () => {
             variables: {
                 nombre: formData.nombre,
                 apellido: formData.apellido,
-                puntaje: "0"
+                puntaje: "30"
             }
         })
         Navigate("/")
@@ -44,19 +44,21 @@ const Pregunta4 = () => {
 
     useEffect(() => {
         preguntasMatematica();
-        console.log("Desde el Effect", data);
+        console.log("Desde el Effect", preguntaUno);
     }, [data])
 
 
 
     if (loading) return <>Cargando</>
+
     return (
+
         <>
             <div className="puntaje-actual">
-                <label>Tu puntaje actual es: 0</label>
+                <label>Tu puntaje actual es: 30</label>
             </div>
             <div>
-                <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-rendirse">¡Ríndete! Igual la vida es una</button>
+                <Link to="/rendirse4" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
             <div className="container-global">
                 <div className="container-preguntas">
@@ -70,7 +72,7 @@ const Pregunta4 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <Link to="/pregunta5" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
+                        <Link to="/pregunta2" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">
@@ -148,64 +150,8 @@ const Pregunta4 = () => {
                 </div>
             </div>
             {/* Finaliza Modal Perdiste */}
-
-            {/* Inicia Modal Rendición */}
-            <div className="modal fade" id="modal-rendirse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-body">
-                            <h1>Oh, ¿te rendiste?</h1>
-                            <h1>Qué mal</h1>
-                            <h4>Ingresa tus datos y vuelve a intentarlo.</h4>
-                        </div>
-                        <form
-                            onSubmit={submitForm}
-                            onChange={updateFormData}
-                            ref={form}
-                        >
-                            <div className="input-modal">
-                                <label>Puntaje</label>
-                            </div>
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text"
-                                    aria-label=".form-control-sm example"
-                                    name="puntaje"
-                                    defaultValue={puntaje}
-                                    disabled
-                                ></input>
-                            </div>
-                            <br />
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text" placeholder="Nombres"
-                                    aria-label=".form-control-sm example"
-                                    name="nombre"
-                                    required
-                                ></input>
-                            </div>
-                            <br />
-                            <div className="input-modal">
-                                <input
-                                    className="form-control form-control-sm tamano-input"
-                                    type="text" placeholder="Apellido"
-                                    aria-label=".form-control-sm example"
-                                    name="apellido"
-                                    required
-                                ></input>
-                            </div>
-                            <div className="modal-footer">
-                                <button onClick={submitForm} type="submit" className="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {/* Termina Modal Rendición */}
         </>
     )
-}
+};
 
-export default Pregunta4
+export default Pregunta4;
