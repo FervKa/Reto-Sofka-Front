@@ -22,7 +22,7 @@ const ListaJugadores = () => {
             <div className="container-just">
                 <div className='encabezado'>
                     Jugadores:
-                    <table className='table table-sm  table-hover tabla'>
+                    <table className='table table-sm  table-hover tabla brd'>
                         <thead>
                             <th>Item</th>
                             <th>Nombre</th>

@@ -44,7 +44,6 @@ const Pregunta1 = () => {
 
     useEffect(() => {
         preguntasMatematica();
-        console.log("Desde el Effect", preguntaUno);
     }, [data])
 
 
@@ -57,11 +56,11 @@ const Pregunta1 = () => {
             <div className="puntaje-actual">
                 <label>Tu puntaje actual es: 0</label>
             </div>
-            <div>
+            <div className="boton-rendirse">
                 <Link to="/rendirse1" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
-            <div className="container-global">
-                <div className="container-preguntas">
+            <div className="container-uno">
+                <div className="container-propio-pg1">
                     <div className="container-preg">
                         &nbsp;Responde con sabiduria:
 
@@ -129,7 +128,6 @@ const Pregunta1 = () => {
                                     type="text" placeholder="Nombres"
                                     aria-label=".form-control-sm example"
                                     name="nombre"
-                                    required
                                 ></input>
                             </div>
                             <br />
@@ -139,7 +137,6 @@ const Pregunta1 = () => {
                                     type="text" placeholder="Apellido"
                                     aria-label=".form-control-sm example"
                                     name="apellido"
-                                    required
                                 ></input>
                             </div>
                             <div className="modal-footer">

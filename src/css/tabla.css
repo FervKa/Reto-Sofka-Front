@@ -29,3 +29,8 @@ div.boton {
     display: flex;
     justify-content: center;
 }
+
+.brd{
+    border-radius: 6px;
+    border: white;
+}

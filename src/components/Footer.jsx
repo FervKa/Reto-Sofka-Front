@@ -66,14 +66,17 @@ const Footer = () => {
                             <h5 className="modal-title" id="exampleModalLabel">Acerca del Juego</h5>
                         </div>
                         <div className="modal-body">
-                            Este juego es creado y desarrollado por Stiven Suárez Marín.
+                            Este juego es creado y desarrollado por Stiven Suárez Marín, aspirante a la Liga de Entrenamiento Sofka 2022.
                             <br />
                             Las normas del juego son sencillas:
                             <br />
                             <br />
+                            <br />
                             1. Responde las preguntas acertadamente para pasar a la siguiente ronda.
                             <br />
+                            <br />
                             2. Sumas 10 puntos por cada pregunta contestada de manera correcta.
+                            <br />
                             <br />
                             3. Si pierdes, debes registrar tu usuario para comenzar de nuevo el juego.
                             <br />

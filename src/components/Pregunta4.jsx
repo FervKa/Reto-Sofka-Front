@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import '../css/pregunta1.css'
+import '../css/pregunta4.css'
 import { SET_JUGADOR } from "../graphql/jugadores/mutations";
 import { useFormData } from "../hooks/useFormData";
 import { GET_CULTURA } from "../graphql/cultura/querys";
@@ -35,7 +36,7 @@ const Pregunta4 = () => {
             variables: {
                 nombre: formData.nombre,
                 apellido: formData.apellido,
-                puntaje: "30"
+                puntaje: "0"
             }
         })
         Navigate("/")
@@ -57,11 +58,11 @@ const Pregunta4 = () => {
             <div className="puntaje-actual">
                 <label>Tu puntaje actual es: 30</label>
             </div>
-            <div>
+            <div className="boton-rendirse">
                 <Link to="/rendirse4" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
-            <div className="container-global">
-                <div className="container-preguntas">
+            <div className="container-uno">
+                <div className="container-propio-pg4">
                     <div className="container-preg">
                         &nbsp;Responde con sabiduria:
 
@@ -72,7 +73,7 @@ const Pregunta4 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <Link to="/pregunta2" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
+                        <Link to="/pregunta5" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">

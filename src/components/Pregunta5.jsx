@@ -31,7 +31,7 @@ const Pregunta5 = () => {
             variables: {
                 nombre: formData.nombre,
                 apellido: formData.apellido,
-                puntaje: "50"
+                puntaje: "0"
             }
         })
         Navigate("/")
@@ -55,11 +55,11 @@ const Pregunta5 = () => {
             <div className="puntaje-actual">
                 <label>Tu puntaje actual es: 0</label>
             </div>
-            <div>
+            <div className='boton-rendirse'>
                 <Link to="/rendirse5" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
-            <div className="container-global">
-                <div className="container-preguntas">
+            <div className="container-uno">
+                <div className="container-propio-pg4">
                     <div className="container-preg">
                         &nbsp;Responde con sabiduria:
 

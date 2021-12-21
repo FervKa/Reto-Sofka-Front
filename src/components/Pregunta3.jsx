@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GET_CINE } from '../graphql/cine/querys';
 import { SET_JUGADOR } from '../graphql/jugadores/mutations';
 import { useFormData } from '../hooks/useFormData';
+import '../css/pregunta3.css'
 
 const Pregunta3 = () => {
 
@@ -36,7 +37,7 @@ const Pregunta3 = () => {
             variables: {
                 nombre: formData.nombre,
                 apellido: formData.apellido,
-                puntaje: "20"
+                puntaje: "0"
             }
         })
         navigate("/");
@@ -56,11 +57,11 @@ const Pregunta3 = () => {
             <div className="puntaje-actual">
                 <label>Tu puntaje actual es: 20</label>
             </div>
-            <div>
+            <div className='boton-rendirse'>
                 <Link to="/rendirse3" type="button" className="btn btn-light">¡Ríndete! Igual la vida es una</Link>
             </div>
-            <div className="container-global">
-                <div className="container-preguntas">
+            <div className="container-uno">
+                <div className="container-propio-pg3">
                     <div className="container-preg">
                         &nbsp;Responde con sabiduria:
 
