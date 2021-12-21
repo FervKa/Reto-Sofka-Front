@@ -14,7 +14,7 @@ const Pregunta5 = () => {
 
     let respuestaDato;
 
-    const preguntasMatematica = async () => {
+    const preguntasCultura = async () => {
         const listaPregunta = await data;
         const randomDato = Math.floor(Math.random() * listaPregunta.Culturas.length)
         respuestaDato = await listaPregunta.Culturas[randomDato]
@@ -43,8 +43,7 @@ const Pregunta5 = () => {
 
 
     useEffect(() => {
-        preguntasMatematica();
-        console.log("Desde el Effect", data);
+        preguntasCultura();
     }, [data])
 
 

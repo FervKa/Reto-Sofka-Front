@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 const GET_TECNOLOGIA = gql`
-  query ExampleQuery {
+  query Tecnologias {
     Tecnologias {
       pregunta
       respuesta_correcta

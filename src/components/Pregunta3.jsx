@@ -18,7 +18,7 @@ const Pregunta3 = () => {
 
     let respuestaDato;
 
-    const preguntasMatematica = async () => {
+    const preguntasCines = async () => {
         const listaPregunta = await data;
         const randomDato = Math.floor(Math.random() * listaPregunta.Cines.length)
         respuestaDato = await listaPregunta.Cines[randomDato]
@@ -44,8 +44,7 @@ const Pregunta3 = () => {
     }
 
     useEffect(() => {
-        preguntasMatematica();
-        console.log("Desde el Effect", preguntaUno);
+        preguntasCines();
     }, [data])
 
 
@@ -72,10 +71,6 @@ const Pregunta3 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <Link to="/pregunta4" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
-                    </div>
-                    <br />
-                    <div className="container-preg">
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr1}&nbsp;
                         </button>
@@ -85,6 +80,10 @@ const Pregunta3 = () => {
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr2}&nbsp;
                         </button>
+                    </div>
+                    <br />
+                    <div className="container-preg">
+                        <Link to="/pregunta4" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">

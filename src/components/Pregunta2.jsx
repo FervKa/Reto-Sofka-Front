@@ -10,7 +10,7 @@ const Pregunta2 = () => {
 
     const [preguntaUno, setPreguntaUno] = useState([]);
     const { data, loading, error } = useQuery(GET_CIENCIA);
-    const puntaje = "10";
+    const puntaje = "0";
     const navigate = useNavigate();
     const { form, formData, updateFormData } = useFormData(null);
     const [agregarJugador, { data: dataMutation, loading: loadingMutation, error: errorMutation }] = useMutation(SET_JUGADOR)
@@ -18,7 +18,7 @@ const Pregunta2 = () => {
 
     let respuestaDato;
 
-    const preguntasMatematica = async () => {
+    const preguntasSciences = async () => {
         const listaPregunta = await data;
         const randomDato = Math.floor(Math.random() * listaPregunta.Sciences.length)
         respuestaDato = await listaPregunta.Sciences[randomDato]
@@ -44,8 +44,7 @@ const Pregunta2 = () => {
     }
 
     useEffect(() => {
-        preguntasMatematica();
-        console.log("Desde el Effect", preguntaUno);
+        preguntasSciences();
     }, [data])
 
 
@@ -71,14 +70,15 @@ const Pregunta2 = () => {
                         &nbsp;{preguntaUno.pregunta}&nbsp;
                     </div>
                     <hr />
-                    <div className="container-preg">
-                        <Link to="/pregunta3" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
-                    </div>
-                    <br />
+
                     <div className="container-preg">
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr1}&nbsp;
                         </button>
+                    </div>
+                    <br />
+                    <div className="container-preg">
+                        <Link to="/pregunta3" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">

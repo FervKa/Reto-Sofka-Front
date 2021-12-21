@@ -5,22 +5,22 @@ import '../css/pregunta1.css'
 import '../css/pregunta4.css'
 import { SET_JUGADOR } from "../graphql/jugadores/mutations";
 import { useFormData } from "../hooks/useFormData";
-import { GET_CULTURA } from "../graphql/cultura/querys";
+import { GET_TECNOLOGIA } from "../graphql/tecnologia/querys";
 
 const Pregunta4 = () => {
 
     const [preguntaUno, setPreguntaUno] = useState([]);
-    const { data, loading, error } = useQuery(GET_CULTURA);
+    const { data, loading, error } = useQuery(GET_TECNOLOGIA);
     const { form, formData, updateFormData } = useFormData(null);
-    const puntaje = "30";
+    const puntaje = "0";
     const [agregarJugador, { data: dataMutation, loading: loadingMutation, error: errorMutation }] = useMutation(SET_JUGADOR)
 
     let respuestaDato;
 
-    const preguntasMatematica = async () => {
+    const preguntasTecnologia = async () => {
         const listaPregunta = await data;
-        const randomDato = Math.floor(Math.random() * listaPregunta.Culturas.length)
-        respuestaDato = await listaPregunta.Culturas[randomDato];
+        const randomDato = Math.floor(Math.random() * listaPregunta.Tecnologias.length)
+        respuestaDato = await listaPregunta.Tecnologias[randomDato];
         setPreguntaUno(respuestaDato);
         return respuestaDato;
     }
@@ -44,8 +44,7 @@ const Pregunta4 = () => {
 
 
     useEffect(() => {
-        preguntasMatematica();
-        console.log("Desde el Effect", preguntaUno);
+        preguntasTecnologia();
     }, [data])
 
 
@@ -73,10 +72,6 @@ const Pregunta4 = () => {
                     </div>
                     <hr />
                     <div className="container-preg">
-                        <Link to="/pregunta5" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
-                    </div>
-                    <br />
-                    <div className="container-preg">
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr1}&nbsp;
                         </button>
@@ -86,6 +81,10 @@ const Pregunta4 = () => {
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-perdiste">
                             &nbsp;{preguntaUno.respuesta_ncrr2}&nbsp;
                         </button>
+                    </div>
+                    <br />
+                    <div className="container-preg">
+                        <Link to="/pregunta5" type="button" className="btn btn-light">&nbsp;{preguntaUno.respuesta_correcta}&nbsp;</Link>
                     </div>
                     <br />
                     <div className="container-preg">
