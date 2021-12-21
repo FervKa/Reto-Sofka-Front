@@ -31,3 +31,9 @@
     justify-content: center;
 
 }
+
+.puntaje-actual{
+    background-color: black;
+    color: white;
+    width: 200px;
+}
